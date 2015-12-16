@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>NYPL Digital Collections: Green Books</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <!-- leaflet -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+</head>
+<body>
+
+  <div id="main" class="container">
+    <div id="map" class="map"></div>
+    <div id="path" class="path">
+      <div class="title">
+        <h3>The Green Book</h3>
+        <p>A travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where black travelers would be welcome.
+          <a href="#intro" class="info-button">Read more.</a>
+        </p>
+      </div>
+      <div class="path-list-wrapper">
+        <ul id="path-list" class="path-list">
+        </ul>
+        <div class="path-line"></div>
+      </div>
+      <p><button class="form-button">Make Another Trip</button></p>
+    </div>
+    <div id="modal" class="modal info active">
+      <div id="intro" class="modal-content intro active">
+        <h1>The Green Book</h1>
+        <p>
+          From 1936 to 1966, Victor Green, a postal worker from New Jersey, published the directories known today as the <a href="http://digitalcollections.nypl.org/collections/the-green-book" target="_blank">Green Book</a>. (The actual titles were variously: The Negro Motorist Green Book; The Negro Travelers' Green Book; The Travelers' Green Book.) These listed hotels, restaurants, beauty salons, nightclubs, bars, gas stations, etc. where black travelers would be welcome. In an age of sundown towns, segregation, and lynching, the Green Book became an indispensable tool for safe navigation.
+        </p>
+        <p>
+          We encourage you to explore these books; map them in your mind. Think about the trips you could take, can take, will take. See how the size of the world can change depending on the color of your skin.
+        </p>
+        <p>
+          <button id="form-button" class="form-button loading"></button>
+        </p>
+      </div>
+      <div id="path-form-modal" class="modal-content form-modal">
+        <form id="path-form" class="form">
+          <label>Enter an address U.S. address</label>
+          <input id="origin" type="text" value="New York, NY" />
+          <label>Enter a destination address</label>
+          <input id="destination" type="text" value="Atlanta, GA" />
+          <button id="path-form-submit" type="submit"></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vendor/jquery-1.11.3.min.js"></script>
+  <script src="js/vendor/underscore-min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
