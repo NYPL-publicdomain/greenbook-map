@@ -8,7 +8,7 @@ var config = {
   },
   nominatim_url: 'http://nominatim.openstreetmap.org/search?q={q}&format=json',
   start_latlng: [41.850033, -87.6500523], // chicago as center
-  start_zoom: 5, // see the whole country
+  start_zoom: 4, // see the whole country
   pathfinder: {
     types: {
       hotel: ['Tourist Home', 'Hotel', 'Y.M.C.A./Y.W.C.A.', 'Guest House', 'Motel', 'Hotel; Tourist Home', 'Inn', 'Y.M.C.A./Y.W.C.A.; Tourist Home', 'Tourist Home; Restaurant', 'Motel; Restaurant', 'Inn; Tourist Home', 'Cabins', 'Cottage', 'Cottages; Tourist Home', 'Rooming House', 'Camp', 'Hotel; Restaurant', 'Lodge', 'Boarding House', 'Resort', 'Villa', 'Rooms'],
