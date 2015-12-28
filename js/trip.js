@@ -186,18 +186,6 @@ var GB = (function() {
   GB.prototype.loadListeners = function(){
     var _this = this;
 
-    $('.info-button').on('click', function(e){
-      e.preventDefault();
-      _this.modalShow('#intro');
-    });
-
-    $('#intro').on('click', function(e){
-      e.preventDefault();
-      if (_this.path_loaded) {
-        _this.modalHide();
-      }
-    });
-
     $('.form-button').on('click', function(e){
       e.preventDefault();
       e.stopPropagation();

@@ -9,22 +9,42 @@
   <link rel="shortcut icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/map.css">
+  <link rel="stylesheet" href="css/trip.css">
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
-  <!-- mapbox -->
-  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-
-  <!-- leaflet cluster -->
-  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-  <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+  <!-- leaflet -->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 </head>
 <body>
 
   <div id="main" class="container">
     <div id="map" class="map"></div>
+    <div id="path" class="path">
+      <div class="title">
+        <h3>The Green Book</h3>
+        <p>A travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where black travelers would be welcome.
+          <a href="index.html">Read more.</a>
+        </p>
+      </div>
+      <div class="path-list-wrapper">
+        <ul id="path-list" class="path-list">
+        </ul>
+        <div class="path-line"></div>
+      </div>
+      <p><button class="form-button">Make Another Trip</button></p>
+    </div>
+    <div id="modal" class="modal active">
+      <div id="path-form-modal" class="modal-content form-modal loading active">
+        <form id="path-form" class="form">
+          <label>Enter an address U.S. address</label>
+          <input id="origin" type="text" value="New York, NY" />
+          <label>Enter a destination address</label>
+          <input id="destination" type="text" value="Atlanta, GA" />
+          <button id="path-form-submit" type="submit"></button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="nypl-header">
@@ -38,7 +58,7 @@
   <script src="js/vendor/jquery-1.11.3.min.js"></script>
   <script src="js/vendor/underscore-min.js"></script>
   <script src="js/config.js"></script>
-  <script src="js/map.js"></script>
+  <script src="js/trip.js"></script>
 
 </body>
 </html>

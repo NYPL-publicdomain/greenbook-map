@@ -1,0 +1,11 @@
+@import "base";
+
+@import "mixins";
+@import "variables";
+
+.content {
+  max-width: 960px;
+  margin: $headerHeight auto 0;
+  padding: 1em;
+  @include box-sizing();
+}

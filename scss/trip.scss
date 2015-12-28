@@ -190,6 +190,22 @@ form {
     }
   }
 
+  .form-modal {
+    &.loading {
+      text-align: center;
+      font-size: 2em;
+
+      form {
+        display: none;
+      }
+
+      &:before {
+        content: 'Loading...';
+        display: inline-block;
+      }
+    }
+  }
+
   button {
     display: inline-block;
     padding: 0.3em 0.6em;
@@ -200,23 +216,6 @@ form {
 
     &:hover {
       background: lighten($blue, 10%);
-    }
-
-    &.form-button:before {
-      content: 'Take A Trip Using The Green Books';
-    }
-
-    &.loading {
-      cursor: default;
-      opacity: 0.8;
-
-      &:hover {
-        background: $blueLight;
-      }
-
-      &:before {
-        content: 'Loading...'
-      }
     }
   }
 }

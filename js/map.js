@@ -59,6 +59,18 @@ var GB = (function() {
     this.map.setView(this.opt.start_latlng, this.opt.start_zoom);
   };
 
+  GB.prototype.onReady = function(){
+    var markers = new L.MarkerClusterGroup();
+
+    _.each(this.data, function(point, i){
+      var marker = L.marker(point.latlng);
+      marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
+      markers.addLayer(marker);
+    });
+
+    this.map.addLayer(markers);
+  };
+
   return GB;
 
 })();

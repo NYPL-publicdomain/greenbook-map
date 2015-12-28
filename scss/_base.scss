@@ -46,6 +46,22 @@ button {
   overflow: hidden;
 }
 
+a.button,
+.button {
+  display: inline-block;
+  border: none;
+  background: $blue;
+  color: $white;
+  font-size: 1.6em;
+  padding: 0.5em 1em;
+  margin: 1em 1em 0 0;
+  cursor: pointer;
+
+  &:hover {
+    background: lighten($blue, 10%);
+  }
+}
+
 .nypl-header {
   width: 100%;
   height: $headerHeight;
