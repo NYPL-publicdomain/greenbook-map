@@ -22,6 +22,27 @@ var GB = (function() {
     this.loadData();
   };
 
+  GB.prototype.addClusterLayer = function(){
+    var cluster = new L.MarkerClusterGroup();
+
+    _.each(this.data, function(point, i){
+      var marker = L.marker(point.latlng);
+      marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
+      cluster.addLayer(marker);
+    });
+
+    this.layers['cluster'] = cluster;
+  };
+
+  GB.prototype.addHeatLayer = function(){
+    var points = _.pluck(this.data, 'latlng'),
+        heat = L.heatLayer(points, {
+          minOpacity: 0.3
+        });
+
+    this.layers['heat'] = heat;
+  };
+
   GB.prototype.loadData = function(){
     var _this = this;
 
@@ -38,6 +59,15 @@ var GB = (function() {
 
   GB.prototype.loadListeners = function(){
     var _this = this;
+
+    $('.layer-select').on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      if ($(this).hasClass('active')) return false;
+
+      _this.showLayer($(this).attr('data-layer'));
+    });
   };
 
   GB.prototype.loadMap = function(){
@@ -60,15 +90,23 @@ var GB = (function() {
   };
 
   GB.prototype.onReady = function(){
-    var markers = new L.MarkerClusterGroup();
+    this.layers = {};
+    this.map_feature_layer = new L.FeatureGroup();
 
-    _.each(this.data, function(point, i){
-      var marker = L.marker(point.latlng);
-      marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
-      markers.addLayer(marker);
-    });
+    this.addClusterLayer();
+    this.addHeatLayer();
 
-    this.map.addLayer(markers);
+    this.showLayer('cluster');
+    this.loadListeners();
+  };
+
+  GB.prototype.showLayer = function(name){
+    $('.layer-select').removeClass('active');
+    $('.layer-select[data-layer="'+name+'"]').addClass('active');
+
+    this.map_feature_layer.clearLayers();
+    this.map_feature_layer.addLayer(this.layers[name]);
+    this.map.addLayer(this.map_feature_layer);
   };
 
   return GB;

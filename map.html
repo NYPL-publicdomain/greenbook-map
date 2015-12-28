@@ -20,11 +20,18 @@
   <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+
+  <!-- leaflet heat -->
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-heat/v0.1.3/leaflet-heat.js'></script>
 </head>
 <body>
 
   <div id="main" class="container">
     <div id="map" class="map"></div>
+    <div class="map-layer-select">
+      <a data-layer="cluster" class="layer-select active">Cluster View</a>
+      <a data-layer="heat" class="layer-select">Heatmap View</a>
+    </div>
   </div>
 
   <div class="nypl-header">
