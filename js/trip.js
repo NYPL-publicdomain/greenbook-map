@@ -206,6 +206,12 @@ var GB = (function() {
     $('#path-list').on('mouseleave', 'li', function(e) {
       _this.markerHide($('#path-list li').index($(this)));
     });
+
+    $('.modal-close').on('click', function(e){
+      e.preventDefault();
+      if (!_this.path) return false;
+      _this.modalHide();
+    });
   };
 
   GB.prototype.loadMap = function(){

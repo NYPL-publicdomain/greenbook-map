@@ -4,7 +4,7 @@
 @import "variables";
 
 form {
-  font-size: 2.8em;
+  font-size: 2em;
 
   label {
     display: block;
@@ -190,7 +190,7 @@ form {
     top: 50%;
     color: $white;
     display: none;
-    @include transform(translateY(-60%));
+    @include transform(translateY(-50%));
 
     p {
       font-size: 1.2em;
@@ -221,4 +221,50 @@ form {
       font-size: 0.8em;
     }
   }
+
+  p.intro {
+    max-width: 500px;
+    margin: 0 auto 1em;
+    padding: 1em 0.5em;
+    font-size: 1.2em;
+    line-height: 1.2;
+    background: $beige url(../img/bg_light_small.jpg) center no-repeat;
+    background-size: cover;
+    color: $black;
+    @include box-sizing();
+
+    a {
+      color: $green;
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: $headerHeight + 10px;
+    right: 20px;
+    color: $greenLight;
+    font-weight: bold;
+    font-size: 1.6em;
+  }
+}
+
+.infobox {
+  width: 290px;
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+  padding: 0.5em 0.6em 0.3em;
+  background: $beige url(../img/bg_light_small.jpg) center no-repeat;
+  background-size: cover;
+  color: $black;
+  border: 1px solid $grayLight;
+  a {
+    color: $green;
+  }
+  p {
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.2;
+  }
+  @include box-sizing();
 }
