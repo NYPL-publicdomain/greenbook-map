@@ -13,7 +13,7 @@ var config = {
     }
   },
   nominatim_url: 'http://nominatim.openstreetmap.org/search?q={q}&format=json',
-  start_latlng: [41.850033, -87.6500523], // chicago as center
+  start_latlng: [38.5767, -92.1736], // Jefferson City, MO as center
   start_zoom: 4, // see the whole country
   pathfinder: {
     types: {

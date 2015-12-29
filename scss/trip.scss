@@ -258,6 +258,8 @@ form {
   background-size: cover;
   color: $black;
   border: 1px solid $grayLight;
+  @include box-sizing();
+
   a {
     color: $green;
   }
@@ -266,5 +268,4 @@ form {
     margin: 0;
     line-height: 1.2;
   }
-  @include box-sizing();
 }
