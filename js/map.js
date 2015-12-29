@@ -44,6 +44,10 @@ var GB = (function() {
     this.layers['heat'] = heat;
   };
 
+  GB.prototype.chooseYear = function(year){
+    alert('Coming Soon!')
+  };
+
   GB.prototype.loadData = function(){
     var _this = this;
 
@@ -68,6 +72,13 @@ var GB = (function() {
       if ($(this).hasClass('active')) return false;
 
       _this.showLayer($(this).attr('data-layer'));
+    });
+
+    $('.choose-year-link').on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      _this.chooseYear();
     });
   };
 

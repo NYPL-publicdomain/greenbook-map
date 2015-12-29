@@ -262,6 +262,10 @@ form {
 
   a {
     color: $green;
+    &.button {
+      color: $white;
+      font-size: 0.9em;
+    }
   }
   p {
     font-size: 16px;
