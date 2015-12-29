@@ -3,6 +3,11 @@
 @import "mixins";
 @import "variables";
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .content {
   max-width: 960px;
   margin: $headerHeight auto 0;
@@ -10,22 +15,45 @@
   @include box-sizing();
 }
 
-.banner {
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-h1 {
-  font-size: 3em;
+h1, h2 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 6px;
+}
+h1 {
+  font-size: 3em;
+
+}
+
+.text-center {
+  text-align: center;
 }
 
 .caption {
   text-align: right;
   margin: 0.2em 0 0;
   font-size: 1em;
+}
+
+.card {
+
+  > div {
+    background: $beige url(../img/bg_light_small.jpg) center no-repeat;
+    background-size: cover;
+    color: $black;
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  img {
+    border: 1px solid $grayLight;
+  }
+}
+
+.main {
+  margin: 1.2em 0 3em;
 }
