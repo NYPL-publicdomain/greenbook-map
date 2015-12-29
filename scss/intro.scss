@@ -35,6 +35,16 @@ h1 {
   font-size: 1em;
 }
 
+.pull-left {
+  img {
+    width: auto;
+  }
+  .caption {
+    text-align: left;
+    max-width: 220px;
+  }
+}
+
 .card {
 
   > div {
