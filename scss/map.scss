@@ -11,13 +11,18 @@
   height: 100%;
 }
 
-.map-layer-select {
+.map-select {
   position: absolute;
   top: 30px;
   right: 30px;
-  border: 1px solid $grayLight;
+  text-align: center;
 
-  .layer-select {
+  .select-group {
+    border: 1px solid $grayLight;
+  }
+
+  .layer-select,
+  .year-select {
     display: block;
     cursor: pointer;
     background: $grayLighter;
@@ -35,10 +40,17 @@
       color: $white;
     }
   }
+
+  label {
+    display: block;
+    margin: 1em 0 0.2em;
+    color: $black;
+    font-weight: bold;
+  }
 }
 
 .infobox {
-  width: 400px;
+  width: 420px;
   position: absolute;
   bottom: 10px;
   left: 10px;

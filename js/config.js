@@ -1,4 +1,18 @@
 var config = {
+  data: [
+    {
+      year: '1947',
+      url: 'data/greenbook_1947.json',
+      title: 'The Negro Motorist Green Book: 1947',
+      dc_url: 'http://digitalcollections.nypl.org/items/29219280-892b-0132-4271-58d385a7bbd0',
+      selected: true
+    },{
+      year: '1956',
+      url: 'data/greenbook_1956.json',
+      title: 'The Negro Travelers\' Green Book: Fall 1956',
+      dc_url: 'http://digitalcollections.nypl.org/items/9c454830-83b9-0132-d56a-58d385a7b928'
+    }
+  ],
   mapbox: {
     access_token: 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ',
     map_id: 'mapbox.light',
