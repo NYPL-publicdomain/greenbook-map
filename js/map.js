@@ -23,10 +23,11 @@ var GB = (function() {
   };
 
   GB.prototype.addClusterLayer = function(){
-    var cluster = new L.MarkerClusterGroup();
+    var cluster = new L.MarkerClusterGroup(),
+        icon = L.icon(this.opt.mapbox.icon);
 
     _.each(this.data, function(point, i){
-      var marker = L.marker(point.latlng);
+      var marker = L.marker(point.latlng, {icon: icon});
       marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
       cluster.addLayer(marker);
     });

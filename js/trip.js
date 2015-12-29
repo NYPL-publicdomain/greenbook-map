@@ -40,7 +40,8 @@ var GB = (function() {
   };
 
   GB.prototype.addPathToMap = function(){
-    var _this = this;
+    var _this = this,
+        icon = L.icon(this.opt.mapbox.icon);
 
     // clear or initialize feature layer
     if (this.map_feature_layer) {
@@ -51,7 +52,7 @@ var GB = (function() {
 
     // draw markers
     _.each(this.path, function(point, i){
-      var marker = L.marker(point.latlng);
+      var marker = L.marker(point.latlng, {icon: icon});
       marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
       _this.map_feature_layer.addLayer(marker);
       _this.path[i].marker = marker;

@@ -4,7 +4,13 @@ var config = {
     map_id: 'mapbox.light',
     url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
     attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="blank">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com" target="blank">Mapbox</a>',
-    directions_url: 'https://api.mapbox.com/v4/directions/mapbox.driving/{waypoints}.json?access_token={accessToken}'
+    directions_url: 'https://api.mapbox.com/v4/directions/mapbox.driving/{waypoints}.json?access_token={accessToken}',
+    icon: {
+      iconUrl: 'img/greenbooks_marker.png',
+      iconSize: [25, 40],
+      iconAnchor: [13, 40],
+      popupAnchor: [0, -40]
+    }
   },
   nominatim_url: 'http://nominatim.openstreetmap.org/search?q={q}&format=json',
   start_latlng: [41.850033, -87.6500523], // chicago as center
