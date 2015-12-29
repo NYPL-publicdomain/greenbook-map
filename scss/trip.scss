@@ -13,6 +13,7 @@ form {
   input {
     display: block;
     margin: 0.3em auto 1em;
+    padding: 0.2em 0.2em 0.05em;
     color: $grayDarkest;
     outline: none;
   }
@@ -40,16 +41,36 @@ form {
   left: 0;
   overflow: hidden;
   overflow-y: auto;
-  background: $grayDarkest;
   @include box-sizing();
 
   .title {
     padding: 20px;
-    background: $grayDarker;
+    background: $beige url(../img/bg_light_small.jpg) center no-repeat;
+    background-size: cover;
+    color: $black;
     @include box-sizing();
+
+    h2 {
+      text-transform: uppercase;
+      color: $greenDark;
+      text-align: center;
+      letter-spacing: 4px;
+    }
+
+    p {
+      font-size: 1em;
+      margin: 0.4em 0;
+    }
+
+    .button-group .button {
+      font-size: 1em;
+      margin-top: 0;
+      padding: 0.2em 1em 0em;
+    }
 
     *:first-child {
       margin-top: 0;
+      margin-bottom: 0;
     }
 
     *:last-child {
@@ -58,16 +79,7 @@ form {
   }
 
   button {
-    border: none;
-    background: $blue;
-    font-size: 1.6em;
-    padding: 0.5em 1em;
     margin: 20px 0 0 20px;
-    cursor: pointer;
-
-    &:hover {
-      background: lighten($blue, 10%);
-    }
   }
 }
 
@@ -102,7 +114,7 @@ form {
     display: block;
     margin: 0;
     padding: 20px 20px 20px 60px;
-    border-bottom: 1px dotted $grayDarker;
+    border-bottom: 1px dotted $grayDark;
     position: relative;
     @include transition(background 0.5s);
 
@@ -120,7 +132,7 @@ form {
       -moz-osx-font-smoothing: grayscale;
       content: "\f10c";
       z-index: 10;
-      background: $grayDarkest;
+      background: $grayDarker url(../img/bg.jpg) repeat;
     }
 
     &.hotel:before {
@@ -204,18 +216,9 @@ form {
         display: inline-block;
       }
     }
-  }
 
-  button {
-    display: inline-block;
-    padding: 0.3em 0.6em;
-    background: $blue;
-    color: $white;
-    cursor: pointer;
-    border: none;
-
-    &:hover {
-      background: lighten($blue, 10%);
+    button {
+      font-size: 0.8em;
     }
   }
 }

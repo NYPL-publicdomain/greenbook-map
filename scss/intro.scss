@@ -9,3 +9,17 @@
   padding: 1em;
   @include box-sizing();
 }
+
+.banner {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}

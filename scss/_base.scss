@@ -1,4 +1,5 @@
 @import "../css/vendor/normalize.css";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
 
 @import "mixins";
 @import "variables";
@@ -6,15 +7,16 @@
 @import "animations";
 
 body {
-  font-family: "Helvetica",Helvetica,Arial,sans-serif;
-  background: $grayDarkest;
+  font-family: 'Josefin Sans', sans-serif;
+  background: $grayDarker url(../img/bg.jpg) repeat;
   color: $white;
   margin: 0;
   padding: 0;
 }
 
 p {
-  line-height: 1.4;
+  font-size: 1.4em;
+  line-height: 1.6;
 }
 
 a,
@@ -22,12 +24,12 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-  color: $blueLight;
+  color: $greenLight;
   text-decoration: none;
 }
 
 a:hover {
-  color: lighten($blueLight, 10%);
+  color: lighten($greenLight, 10%);
 }
 
 button {
@@ -47,18 +49,32 @@ button {
 }
 
 a.button,
-.button {
+.button,
+button {
   display: inline-block;
   border: none;
-  background: $blue;
+  outline: none;
+  background: $green;
   color: $white;
-  font-size: 1.6em;
+  font-size: 1.2em;
   padding: 0.5em 1em;
-  margin: 1em 1em 0 0;
+  margin: 0;
   cursor: pointer;
 
   &:hover {
-    background: lighten($blue, 10%);
+    background: lighten($green, 10%);
+  }
+}
+.button-group {
+
+  text-align: center;
+
+  .button {
+    margin: 0.5em 0 0 1em;
+  }
+
+  .button:first-child {
+    margin-left: 0;
   }
 }
 
@@ -66,7 +82,7 @@ a.button,
   width: 100%;
   height: $headerHeight;
   line-height: $headerHeight;
-  background: #1a404f;
+  background: $greenDark;
   position: fixed;
   z-index: 1000000;
   top: 0;
@@ -85,7 +101,7 @@ a.button,
     height: 30px;
     margin-right: 10px;
     font-size: 1px;
-    color: #1a404f;
+    color: $greenDark;
     vertical-align: middle;
   }
 }
