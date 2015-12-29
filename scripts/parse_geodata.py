@@ -15,7 +15,7 @@ INPUT_FILE = sys.argv[1]
 MAX_ROWS = int(sys.argv[2])
 ROWS_PER_FILE = int(sys.argv[3])
 OUTPUT_FILE = sys.argv[4]
-YEAR = sys.argv[5]
+YEAR = int(sys.argv[5])
 
 cols = ['name','address','type','year','latlng']
 rows = []

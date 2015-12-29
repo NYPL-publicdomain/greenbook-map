@@ -154,7 +154,7 @@ var GB = (function() {
 
     // filter list to place types and places not already in current path
     var places = _.filter(this.data, function(item){
-      return _.contains(types, item.type) && !_.find(_this.path, function(p){ return p.latlng[0]==item.latlng[0] && p.latlng[1]==item.latlng[1];});
+      return _.contains(types, item.type.toLowerCase()) && !_.find(_this.path, function(p){ return p.latlng[0]==item.latlng[0] && p.latlng[1]==item.latlng[1];});
     });
 
     // console.log(places.length + ' possible places');

@@ -17,8 +17,8 @@ var config = {
   start_zoom: 4, // see the whole country
   pathfinder: {
     types: {
-      hotel: ['Tourist Home', 'Hotel', 'Y.M.C.A./Y.W.C.A.', 'Guest House', 'Motel', 'Hotel; Tourist Home', 'Inn', 'Y.M.C.A./Y.W.C.A.; Tourist Home', 'Tourist Home; Restaurant', 'Motel; Restaurant', 'Inn; Tourist Home', 'Cabins', 'Cottage', 'Cottages; Tourist Home', 'Rooming House', 'Camp', 'Hotel; Restaurant', 'Lodge', 'Boarding House', 'Resort', 'Villa', 'Rooms'],
-      restaurant: ['Restaurant', 'Tourist Home; Restaurant', 'Motel; Restaurant', 'Hotel; Restaurant']
+      hotel: ['tourist home', 'hotel', 'y.m.c.a./y.w.c.a.', 'guest house', 'motel', 'hotel; tourist home', 'inn', 'y.m.c.a./y.w.c.a.; tourist home', 'tourist home; restaurant', 'motel; restaurant', 'inn; tourist home', 'cabins', 'cottage', 'cottages; tourist home', 'rooming house', 'camp', 'hotel; restaurant', 'lodge', 'boarding house', 'resort', 'villa', 'rooms'],
+      restaurant: ['restaurant', 'tourist home; restaurant', 'motel; restaurant', 'hotel; restaurant', 'tavern']
     },
     mph: 50,
     hotel_every: 15,
