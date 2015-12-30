@@ -2,16 +2,17 @@
 
 # Description: generates a json file of addresses from a geojson file
 # Example usage:
-#   python parse_geojson.py data/1947.geojson ../data/greenbook_1947.json
+#   python parse_geojson.py data/1947.geojson ../data/greenbook_1947.json 1947
 
 import json
 import sys
 
-if len(sys.argv) < 2:
-    print "Usage: %s <inputfile json> <outputfile json>" % sys.argv[0]
+if len(sys.argv) < 3:
+    print "Usage: %s <inputfile json> <outputfile json> <year>" % sys.argv[0]
     sys.exit(1)
 INPUT_FILE = sys.argv[1]
 OUTPUT_FILE = sys.argv[2]
+YEAR = sys.argv[3]
 
 cols = ['name','address','type','year','latlng','url','image_id','image_region']
 rows = []
@@ -66,7 +67,8 @@ with open(OUTPUT_FILE, 'w') as outfile:
     data = {
         'cols': cols,
         'rows': rows,
-        'totalrows': len(rows)
+        'totalrows': len(rows),
+        'year': YEAR
     }
     json.dump(data, outfile)
 print "Wrote " + str(len(rows)) + " rows to " + OUTPUT_FILE

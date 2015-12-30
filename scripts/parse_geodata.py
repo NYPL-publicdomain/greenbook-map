@@ -104,7 +104,8 @@ with open(OUTPUT_FILE, 'w') as outfile:
     data = {
         'cols': cols,
         'rows': rows,
-        'totalrows': len(rows)
+        'totalrows': len(rows),
+        'year': str(YEAR)
     }
     json.dump(data, outfile)
 print "Wrote " + str(len(rows)) + " rows to " + OUTPUT_FILE

@@ -23,7 +23,7 @@
     <div id="path" class="path">
       <div class="title">
         <h2>The Green Book</h2>
-        <p>A travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where black travelers would be welcome.
+        <p>A travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, etc. where black travelers would be welcome.
         </p>
         <p class="button-group">
           <a href="index.html" class="button">Learn More</a>
@@ -40,6 +40,8 @@
       <div id="path-form-modal" class="modal-content form-modal loading active">
         <p class="intro">The <a href="http://digitalcollections.nypl.org/collections/the-green-book" target="_blank">Green Book</a> was a travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where black travelers would be welcome. Using data extracted from the books themselves, we welcome you to visualize a trip one may have taken using these books. <a href="index.html">Learn More.</a></p>
         <form id="path-form" class="form">
+          <label>Choose a year</label>
+          <div id="select-year" class="select-group"></div>
           <label>Enter an address U.S. address</label>
           <input id="origin" type="text" value="New York, NY" />
           <label>Enter a destination address</label>
@@ -50,10 +52,10 @@
       <a href="#close" class="modal-close">x</a>
     </div>
     <div id="map-info" class="infobox">
-      <p>This map is currently using data from <a href="http://digitalcollections.nypl.org/items/9c454830-83b9-0132-d56a-58d385a7b928" target="_blank">The Negro Travelers' Green Book: Fall 1956</a></p>
+      <p>This map is currently using <span class="data-count">--</span> address extracted from <a href="#" class="data-link" target="_blank">--</a></p>
       <p class="button-group">
         <a href="index.html" class="button">Learn More</a>
-        <a href="map.html" class="button">View All The Data</a>
+        <a href="map.html#year=1956" class="button map-link">View All The Data</a>
       </p>
     </div>
   </div>

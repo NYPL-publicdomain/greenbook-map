@@ -12,10 +12,32 @@ form {
   }
   input {
     display: block;
-    margin: 0.3em auto 1em;
+    margin: 0.3em auto 0.7em;
     padding: 0.2em 0.2em 0.05em;
     color: $grayDarkest;
     outline: none;
+  }
+  .select-group {
+    margin: 0.3em 0 0.7em;
+    text-align: center;
+
+    .select.button {
+      display: inline-block;
+      background: $grayLight;
+      font-size: 0.7em;
+
+      &:hover {
+        background: lighten($grayLight, 8%);
+      }
+      &.active {
+        background: $green;
+        cursor: default;
+        &:before {
+          font-size: 0.8em;
+          content: '✓ ';
+        }
+      }
+    }
   }
   button {
     &:before {
@@ -176,6 +198,7 @@ form {
   top: 0;
   left: 0;
   z-index: 1001;
+  overflow: auto;
   display: none;
 
   &.active {
@@ -249,7 +272,7 @@ form {
 }
 
 .infobox {
-  width: 290px;
+  width: 390px;
   position: absolute;
   bottom: 25px;
   right: 10px;

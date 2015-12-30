@@ -3,6 +3,9 @@ var config = {
     layer: 'cluster',
     year: '1947'
   },
+  trip_params: {
+    year: '1956'
+  },
   data: [
     {
       year: '1947',

@@ -31,6 +31,7 @@ var GB = (function() {
       _this.onReady();
     });
 
+    this.loadYearSelects();
     this.loadMap();
     this.loadData();
   };
@@ -59,9 +60,21 @@ var GB = (function() {
 
     // draw markers
     _.each(this.path, function(point, i){
-      var icon = point.icon || 'place';
-      var marker = L.marker(point.latlng, {icon: icons[icon]});
-      marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
+      var icon = point.icon || 'place',
+          marker = L.marker(point.latlng, {icon: icons[icon]}),
+          name = point.name + ' (' + point.type + ')',
+          html = '<strong>' + name + '</strong>';
+
+      // check for url
+      if ('url' in point) html = '<a href="'+point.url+'" target="_blank">' + name + '</a>';
+      html += '<br />' + point.address;
+
+      // check for image
+      if ('url' in point && 'image_id' in point) html += '<a href="'+point.url+'" target="_blank"><img src="http://images.nypl.org/index.php?id='+point.image_id+'&t=t" /></a>';
+      else if ('image_id' in point) html += '<img src="http://images.nypl.org/index.php?id='+point.image_id+'&t=t" />';
+
+      // draw marker
+      marker.bindPopup(html);
       _this.map_feature_layer.addLayer(marker);
       _this.path[i].marker = marker;
     });
@@ -161,7 +174,7 @@ var GB = (function() {
         types = this.opt.pathfinder.types[type];
 
     // filter list to place types and places not already in current path
-    var places = _.filter(this.data, function(item){
+    var places = _.filter(this.current_year_data.rows, function(item){
       return _.contains(types, item.type.toLowerCase()) && !_.find(_this.path, function(p){ return p.latlng[0]==item.latlng[0] && p.latlng[1]==item.latlng[1];});
     });
 
@@ -181,17 +194,27 @@ var GB = (function() {
   GB.prototype.loadData = function(){
     var _this = this;
 
-    this.data = [];
+    this.data = {};
+    this.yearsTotal = this.opt.data.length;
+    this.yearsLoaded = 0;
 
-    $.getJSON("data/greenbook_1956.json", function(data) {
-      var d = _.map(data.rows, function(row){ return _.object(data.cols, row); });
+    _.each(this.opt.data, function(metadata){
+      var year_data = _.clone(metadata);
+      year_data.rows = [];
+      _this.data[metadata.year] = year_data;
 
-      _this.data = _this.processData(d);
+      $.getJSON(metadata.url, function(data) {
+        var d = _.map(data.rows, function(row){ return _.object(data.cols, row); });
 
-      console.log(data.totalrows + ' addresses loaded');
-      _this.data_loaded.resolve();
+        _this.data[data.year].rows = _this.processData(d);
+        _this.yearsLoaded++;
+
+        console.log(data.totalrows + ' addresses loaded from ' + data.year);
+        if (_this.yearsLoaded >= _this.yearsTotal) {
+          _this.data_loaded.resolve();
+        }
+      });
     });
-
   };
 
   GB.prototype.loadListeners = function(){
@@ -206,7 +229,7 @@ var GB = (function() {
     $('#path-form').on('submit', function(e){
       e.preventDefault();
       if ($('#path-form-submit').hasClass('loading')) return false;
-      _this.submitPath($('#origin').val(), $('#destination').val());
+      _this.submitPath($('#origin').val(), $('#destination').val(), $('#select-year .select.active').first().attr('data-value'));
     });
 
     $('#path-list').on('mouseover', 'li', function(e) {
@@ -221,6 +244,13 @@ var GB = (function() {
       e.preventDefault();
       if (!_this.path) return false;
       _this.modalHide();
+    });
+
+    $('.select-group').on('click', '.select', function(e){
+      e.preventDefault();
+      var $group = $(this.closest('.select-group'));
+      $group.find('.select').removeClass('active');
+      $(this).addClass('active');
     });
   };
 
@@ -267,6 +297,18 @@ var GB = (function() {
         console.log('Request Failed: ' + textStatus + ', ' + error);
         _this.route_loaded.resolve([]);
       });
+  };
+
+  GB.prototype.loadYearSelects = function(){
+    var _this = this,
+        $target = $('#select-year'),
+        current_year = this.opt.trip_params.year;
+
+    _.each(this.opt.data, function(d){
+      var className = 'select button';
+      if (d.year == current_year) className += ' active';
+      $target.append($('<div data-value="'+d.year+'" class="'+className+'">'+d.year+'</a>'));
+    });
   };
 
   GB.prototype.lookupAddress = function(address, deferred) {
@@ -346,11 +388,13 @@ var GB = (function() {
     return data;
   };
 
-  GB.prototype.submitPath = function(origin, destination){
+  GB.prototype.submitPath = function(origin, destination, year){
     if (!origin.length || !destination.length) {
       alert('Please enter an origin and destination address.');
       return false;
     }
+
+    this.current_year_data = this.data[year];
 
     $('#path-form-submit').addClass('loading');
 
@@ -362,9 +406,17 @@ var GB = (function() {
       _this.doPath(the_origin, the_destination);
     });
 
+    this.updateMetadata(this.current_year_data);
     this.lookupAddress(origin, origin_found);
     this.lookupAddress(destination, destination_found);
 
+  };
+
+  GB.prototype.updateMetadata = function(data){
+    $('.data-count').text(data.rows.length);
+    $('.data-link').text(data.title);
+    $('.data-link').attr('href', data.dc_url);
+    $('.map-link').attr('href', 'map.html#year='+data.year);
   };
 
   function _angleBetween(x1, y1, x2, y2) {
