@@ -1,11 +1,14 @@
 var config = {
+  map_params: {
+    layer: 'cluster',
+    year: '1947'
+  },
   data: [
     {
       year: '1947',
       url: 'data/greenbook_1947.json',
       title: 'The Negro Motorist Green Book: 1947',
-      dc_url: 'http://digitalcollections.nypl.org/items/29219280-892b-0132-4271-58d385a7bbd0',
-      selected: true
+      dc_url: 'http://digitalcollections.nypl.org/items/29219280-892b-0132-4271-58d385a7bbd0'
     },{
       year: '1956',
       url: 'data/greenbook_1956.json',

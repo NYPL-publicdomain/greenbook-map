@@ -14,7 +14,6 @@ var GB = (function() {
     this.data = {};
     this.layers = {};
     this.map_feature_layer = new L.FeatureGroup();
-    this.current_layer = 'cluster';
 
     // init data objects
     _.each(this.opt.data, function(d){
@@ -22,9 +21,9 @@ var GB = (function() {
       _this.layers[d.year] = {};
     });
 
-    // define current year
-    this.current_year_data = _.findWhere(this.opt.data, {selected: true});
-    if (!this.current_year_data) this.current_year_data = this.opt.data[0];
+    // init default/deeplink data
+    this.params = this.opt.map_params;
+    this.loadDeeplinking();
 
     // load map
     this.map_loaded = $.Deferred();
@@ -33,7 +32,6 @@ var GB = (function() {
     });
     this.loadMap();
     this.loadYearSelects();
-    this.loadDeeplinking();
   };
 
   GB.prototype.addClusterLayer = function(year, data){
@@ -63,7 +61,9 @@ var GB = (function() {
   };
 
   GB.prototype.deeplink = function(key, value){
-
+    this.params[key] = value;
+    var param = $.param(this.params);
+    window.location.hash = '#' + param;
   };
 
   GB.prototype.loadData = function(year_data){
@@ -85,7 +85,12 @@ var GB = (function() {
   };
 
   GB.prototype.loadDeeplinking = function(){
-    
+    if (!window.location.hash || window.location.hash.length < 1) return false;
+
+    var paramString = window.location.hash.substr(1);
+    var params = deparam(paramString);
+
+    this.params = $.extend({}, this.params, params);
   };
 
   GB.prototype.loadListeners = function(){
@@ -97,7 +102,7 @@ var GB = (function() {
 
       if ($(this).hasClass('active')) return false;
 
-      _this.showLayer(_this.current_year_data.year, $(this).attr('data-layer'));
+      _this.showLayer(_this.params.year, $(this).attr('data-layer'));
     });
 
     $('#year-selects').on('click', '.year-select', function(e){
@@ -146,13 +151,12 @@ var GB = (function() {
       var data = _this.data[year];
       _this.addClusterLayer(year, data);
       _this.addHeatLayer(year, data);
-      _this.showLayer(year, _this.current_layer);
+      _this.showLayer(year, _this.params.layer);
 
       $('.data-count').text(data.length);
       $('.data-link').text(metadata.title);
       $('.data-link').attr('href', metadata.dc_url);
 
-      _this.current_year_data = metadata;
       _this.deeplink('year', year);
     });
 
@@ -160,17 +164,18 @@ var GB = (function() {
   };
 
   GB.prototype.loadYearSelects = function(){
-    var $target = $('#year-selects');
+    var _this = this,
+        $target = $('#year-selects');
 
-    _.each(this.opt.data, function(d, i){
+    _.each(this.opt.data, function(d){
       var className = 'year-select';
-      if (i==0) className += ' active';
+      if (d.year == _this.params.year) className += ' active';
       $target.append($('<a data-year="'+d.year+'" class="'+className+'">'+d.year+'</a>'))
     });
   };
 
   GB.prototype.onMapLoaded = function(){
-    this.loadYear(this.current_year_data.year);
+    this.loadYear(this.params.year);
 
     this.loadListeners();
   };
@@ -185,7 +190,6 @@ var GB = (function() {
     this.map_feature_layer.clearLayers();
     this.map_feature_layer.addLayer(this.layers[year][name]);
     this.map.addLayer(this.map_feature_layer);
-    this.current_layer = name;
     this.deeplink('layer', name);
   };
 
