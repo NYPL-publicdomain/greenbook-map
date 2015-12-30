@@ -11,10 +11,17 @@ var GB = (function() {
 
     this.opt = options;
 
+    // init pathfinder
     this.hotel_every = this.opt.pathfinder.hotel_every * this.opt.pathfinder.mph;
     this.restaurant_every = this.opt.pathfinder.restaurant_every * this.opt.pathfinder.mph;
     console.log('Hotel every '+this.hotel_every+' miles');
     console.log('Restaurant every '+this.restaurant_every+' miles');
+
+    // init icons
+    this.icons = {};
+    _.each(this.opt.icons, function(icon, key){
+      _this.icons[key] = L.icon(icon);
+    });
 
     this.data_loaded = $.Deferred();
     this.map_loaded = $.Deferred();
@@ -41,7 +48,7 @@ var GB = (function() {
 
   GB.prototype.addPathToMap = function(){
     var _this = this,
-        icon = L.icon(this.opt.mapbox.icon);
+        icons = this.icons;
 
     // clear or initialize feature layer
     if (this.map_feature_layer) {
@@ -52,7 +59,8 @@ var GB = (function() {
 
     // draw markers
     _.each(this.path, function(point, i){
-      var marker = L.marker(point.latlng, {icon: icon});
+      var icon = point.icon || 'place';
+      var marker = L.marker(point.latlng, {icon: icons[icon]});
       marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
       _this.map_feature_layer.addLayer(marker);
       _this.path[i].marker = marker;
@@ -176,7 +184,9 @@ var GB = (function() {
     this.data = [];
 
     $.getJSON("data/greenbook_1956.json", function(data) {
-      _this.data = _.map(data.rows, function(row){ return _.object(data.cols, row); });
+      var d = _.map(data.rows, function(row){ return _.object(data.cols, row); });
+
+      _this.data = _this.processData(d);
 
       console.log(data.totalrows + ' addresses loaded');
       _this.data_loaded.resolve();
@@ -308,6 +318,32 @@ var GB = (function() {
     this.modalHide();
     this.path_loaded = true;
     $('#path-form-submit').removeClass('loading');
+  };
+
+  GB.prototype.processData = function(data){
+    var icons = this.opt.icons,
+        types = this.opt.pathfinder.types,
+        icon_keys = _.keys(icons),
+        type_keys = _.keys(types);
+
+    _.each(data, function(d, i){
+      var icon = 'place';
+
+      // search for icon
+      _.each(icon_keys, function(key){
+        if (_.contains(type_keys, key)) {
+          if (_.contains(types[key], d.type.toLowerCase())) {
+            icon = key;
+            return false;
+          }
+        }
+      });
+
+      // add icons
+      data[i]['icon'] = icon;
+    });
+
+    return data;
   };
 
   GB.prototype.submitPath = function(origin, destination){
