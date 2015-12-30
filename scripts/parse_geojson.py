@@ -23,7 +23,10 @@ types_map = {
     'motel': 'motel',
     'restaurant': 'restaurant',
     'tavern': 'tavern',
-    'service station': 'service station'
+    'service station': 'service station',
+    'liquor store': 'liquor store',
+    'night club': 'night club',
+    'road house': 'road house'
 }
 
 def isValid(item):

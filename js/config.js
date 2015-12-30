@@ -21,11 +21,31 @@ var config = {
     map_id: 'mapbox.light',
     url: 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}',
     attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="blank">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com" target="blank">Mapbox</a>',
-    directions_url: 'https://api.mapbox.com/v4/directions/mapbox.driving/{waypoints}.json?access_token={accessToken}',
-    icon: {
+    directions_url: 'https://api.mapbox.com/v4/directions/mapbox.driving/{waypoints}.json?access_token={accessToken}'
+  },
+  icons: {
+    place: {
       iconUrl: 'img/greenbooks_marker.png',
       iconSize: [25, 40],
       iconAnchor: [13, 40],
+      popupAnchor: [0, -40]
+    },
+    hotel: {
+      iconUrl: 'img/hotel_marker.png',
+      iconSize: [40, 24],
+      iconAnchor: [20, 24],
+      popupAnchor: [0, -24]
+    },
+    restaurant: {
+      iconUrl: 'img/restaurant_marker.png',
+      iconSize: [21, 40],
+      iconAnchor: [11, 40],
+      popupAnchor: [0, -40]
+    },
+    nightlife: {
+      iconUrl: 'img/nightlife_marker.png',
+      iconSize: [13, 40],
+      iconAnchor: [7, 40],
       popupAnchor: [0, -40]
     }
   },
@@ -35,7 +55,8 @@ var config = {
   pathfinder: {
     types: {
       hotel: ['tourist home', 'hotel', 'y.m.c.a./y.w.c.a.', 'guest house', 'motel', 'hotel; tourist home', 'inn', 'y.m.c.a./y.w.c.a.; tourist home', 'tourist home; restaurant', 'motel; restaurant', 'inn; tourist home', 'cabins', 'cottage', 'cottages; tourist home', 'rooming house', 'camp', 'hotel; restaurant', 'lodge', 'boarding house', 'resort', 'villa', 'rooms'],
-      restaurant: ['restaurant', 'tourist home; restaurant', 'motel; restaurant', 'hotel; restaurant', 'tavern']
+      restaurant: ['restaurant', 'tourist home; restaurant', 'motel; restaurant', 'hotel; restaurant', 'tavern'],
+      nightlife: ['tavern', 'liquor store', 'night club', 'road house']
     },
     mph: 50,
     hotel_every: 15,

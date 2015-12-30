@@ -21,6 +21,12 @@ var GB = (function() {
       _this.layers[d.year] = {};
     });
 
+    // init icons
+    this.icons = {};
+    _.each(this.opt.icons, function(icon, key){
+      _this.icons[key] = L.icon(icon);
+    });
+
     // init default/deeplink data
     this.params = this.opt.map_params;
     this.loadDeeplinking();
@@ -37,15 +43,16 @@ var GB = (function() {
   GB.prototype.addClusterLayer = function(year, data){
     if ('clusters' in this.layers[year]) return false;
 
-    var cluster = new L.MarkerClusterGroup(),
-        icon = L.icon(this.opt.mapbox.icon);
+    var icons = this.icons,
+        cluster = new L.MarkerClusterGroup();
 
     _.each(data, function(point, i){
-      var marker = L.marker(point.latlng, {icon: icon}),
-          html = '<strong>' + point.name + '</strong>';
+      var marker = L.marker(point.latlng, {icon: icons[point.icon]}),
+          name = point.name + ' (' + point.type + ')',
+          html = '<strong>' + name + '</strong>';
 
       // check for url
-      if ('url' in point) html = '<a href="'+point.url+'" target="_blank">' + point.name + '</a>';
+      if ('url' in point) html = '<a href="'+point.url+'" target="_blank">' + name + '</a>';
       html += '<br />' + point.address;
 
       // check for image
@@ -87,7 +94,9 @@ var GB = (function() {
     }
 
     $.getJSON(year_data.url, function(data) {
-      _this.data[year] = _.map(data.rows, function(row){ return _.object(data.cols, row); });
+      var d = _.map(data.rows, function(row){ return _.object(data.cols, row); });
+
+      _this.data[year] = _this.processData(d);
 
       console.log(data.totalrows + ' addresses loaded');
       _this.data_loaded.resolve();
@@ -189,6 +198,32 @@ var GB = (function() {
     this.loadYear(this.params.year);
 
     this.loadListeners();
+  };
+
+  GB.prototype.processData = function(data){
+    var icons = this.opt.icons,
+        types = this.opt.pathfinder.types,
+        icon_keys = _.keys(icons),
+        type_keys = _.keys(types);
+
+    _.each(data, function(d, i){
+      var icon = 'place';
+
+      // search for icon
+      _.each(icon_keys, function(key){
+        if (_.contains(type_keys, key)) {
+          if (_.contains(types[key], d.type.toLowerCase())) {
+            icon = key;
+            return false;
+          }
+        }
+      });
+
+      // add icons
+      data[i]['icon'] = icon;
+    });
+
+    return data;
   };
 
   GB.prototype.showLayer = function(year, name){
