@@ -33,6 +33,7 @@ var GB = (function() {
     });
     this.loadMap();
     this.loadYearSelects();
+    this.loadDeeplinking();
   };
 
   GB.prototype.addClusterLayer = function(year, data){
@@ -61,6 +62,10 @@ var GB = (function() {
     this.layers[year]['heat'] = heat;
   };
 
+  GB.prototype.deeplink = function(key, value){
+
+  };
+
   GB.prototype.loadData = function(year_data){
     var _this = this,
         year = year_data.year;
@@ -77,6 +82,10 @@ var GB = (function() {
       _this.data_loaded.resolve();
     });
 
+  };
+
+  GB.prototype.loadDeeplinking = function(){
+    
   };
 
   GB.prototype.loadListeners = function(){
@@ -144,6 +153,7 @@ var GB = (function() {
       $('.data-link').attr('href', metadata.dc_url);
 
       _this.current_year_data = metadata;
+      _this.deeplink('year', year);
     });
 
     this.loadData(metadata);
@@ -176,6 +186,7 @@ var GB = (function() {
     this.map_feature_layer.addLayer(this.layers[year][name]);
     this.map.addLayer(this.map_feature_layer);
     this.current_layer = name;
+    this.deeplink('layer', name);
   };
 
   return GB;
