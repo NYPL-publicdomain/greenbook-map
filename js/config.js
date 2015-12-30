@@ -15,8 +15,8 @@ var config = {
     },{
       year: '1956',
       url: 'data/greenbook_1956.json',
-      title: 'The Negro Travelers\' Green Book: Fall 1956',
-      dc_url: 'http://digitalcollections.nypl.org/items/9c454830-83b9-0132-d56a-58d385a7b928'
+      title: 'The Negro Travelers\' Green Book: Spring 1956',
+      dc_url: 'http://digital.tcl.sc.edu/cdm/compoundobject/collection/greenbook/id/88'
     }
   ],
   mapbox: {

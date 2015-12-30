@@ -22,7 +22,17 @@ h1, h2 {
 }
 h1 {
   font-size: 3em;
+}
+h2 {
+  margin-top: 2em;
+}
+li {
+  font-size: 1.4em;
+  line-height: 1.6;
+}
 
+.button-group {
+  margin-bottom: 3em;
 }
 
 .text-center {
@@ -43,6 +53,14 @@ h1 {
     text-align: left;
     max-width: 220px;
   }
+}
+
+.quote {
+  margin: 1em 2em;
+  padding: 0.2em 1em;
+  background: rgba($grayDarkest, 0.5);
+  color: $grayLightest;
+  @include box-sizing();
 }
 
 .card {
