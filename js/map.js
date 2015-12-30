@@ -41,8 +41,19 @@ var GB = (function() {
         icon = L.icon(this.opt.mapbox.icon);
 
     _.each(data, function(point, i){
-      var marker = L.marker(point.latlng, {icon: icon});
-      marker.bindPopup('<strong>' + point.name + '</strong><br />' + point.address);
+      var marker = L.marker(point.latlng, {icon: icon}),
+          html = '<strong>' + point.name + '</strong>';
+
+      // check for url
+      if ('url' in point) html = '<a href="'+point.url+'" target="_blank">' + point.name + '</a>';
+      html += '<br />' + point.address;
+
+      // check for image
+      if ('url' in point && 'image_id' in point) html += '<a href="'+point.url+'" target="_blank"><img src="http://images.nypl.org/index.php?id='+point.image_id+'&t=t" /></a>';
+      else if ('image_id' in point) html += '<img src="http://images.nypl.org/index.php?id='+point.image_id+'&t=t" />';
+
+      // bind html
+      marker.bindPopup(html);
       cluster.addLayer(marker);
     });
 
