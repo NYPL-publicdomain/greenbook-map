@@ -77,6 +77,11 @@ form {
       color: $greenDark;
       text-align: center;
       letter-spacing: 4px;
+
+      small {
+        font-size: 0.5em;
+        color: rgba($greenDark, 0.5);
+      }
     }
 
     p {
@@ -87,7 +92,7 @@ form {
     .button-group .button {
       font-size: 1em;
       margin-top: 0;
-      padding: 0.2em 1em 0em;
+      padding: 0.2em 0.6em 0em;
     }
 
     *:first-child {

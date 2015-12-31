@@ -22,6 +22,11 @@ h1, h2 {
 }
 h1 {
   font-size: 3em;
+  small {
+    color: $grayLight;
+    font-size: 0.5em;
+    line-height: 2;
+  }
 }
 h2 {
   margin-top: 2em;

@@ -62,11 +62,16 @@
   @include box-sizing();
 
   h2 {
-    margin: 0.4em 0;
+    margin: 0 0 0.4em;
     color: $greenDark;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 3px;
+
+    small {
+      font-size: 0.5em;
+      color: rgba($greenDark, 0.5);
+    }
   }
 
   a {
