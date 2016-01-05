@@ -2,7 +2,7 @@
 
 A set of experimental interfaces by the [Brian Foo](http://brianfoo.com/) of [NYPL Labs](http://labs.nypl.org/) that explore the [Green Book](http://digitalcollections.nypl.org/collections/the-green-book), a travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where black travelers would be welcome.
 
-View the website here: [http://publicdomain.nypl.org/greenbook-map/](http://publicdomain.nypl.org/greenbook-map/)
+View the project here: [http://publicdomain.nypl.org/greenbook-map/](http://publicdomain.nypl.org/greenbook-map/)
 
 ## The Data
 

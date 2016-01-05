@@ -4,7 +4,7 @@ var config = {
     year: '1947'
   },
   trip_params: {
-    year: '1956'
+    year: '1947'
   },
   data: [
     {

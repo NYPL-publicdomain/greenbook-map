@@ -16,6 +16,8 @@ var GB = (function() {
     this.restaurant_every = this.opt.pathfinder.restaurant_every * this.opt.pathfinder.mph;
     console.log('Hotel every '+this.hotel_every+' miles');
     console.log('Restaurant every '+this.restaurant_every+' miles');
+    $('.data-hotel-miles').text(this.hotel_every);
+    $('.data-restaurant-miles').text(this.restaurant_every);
 
     // init icons
     this.icons = {};
