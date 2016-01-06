@@ -16,6 +16,7 @@ The data from [The Negro Travelers' Green Book: Spring 1956](http://digital.tcl.
 - [Leaflet](http://leafletjs.com/) - interactive map UI
 - [Open Street Map Nominatim](http://wiki.openstreetmap.org/wiki/Nominatim) - reverse geocoding
 
+---
 ### About the NYPL Public Domain Release
 
 On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the [Digital Collections](http://digitalcollections.nypl.org) website. 
