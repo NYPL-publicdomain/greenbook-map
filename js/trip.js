@@ -355,6 +355,8 @@ var GB = (function() {
   GB.prototype.onReady = function(){
     $('.loading').removeClass('loading');
 
+    $('#origin').focus().select();
+
     this.loadListeners();
   };
 
