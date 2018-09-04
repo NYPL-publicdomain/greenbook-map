@@ -322,10 +322,9 @@ var GB = (function() {
       var the_address = data[0],
           name = the_address.display_name;
 
-      if (name.indexOf('United States of America')<0 || name.indexOf('Alaska')>=0 || name.indexOf('Hawaii')>=0) {
-        console.log('Warning: Addresses must be in the continental U.S.');
+      if ((name.indexOf('United States of America')<0 && name.indexOf('US')<0) || name.indexOf('Alaska')>=0 || name.indexOf('Hawaii')>=0) {
         console.log(the_address);
-        // return false;
+        alert('Addresses must be in the continental U.S.');
       }
 
       the_address.lat = parseFloat(the_address.lat);
