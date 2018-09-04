@@ -323,8 +323,9 @@ var GB = (function() {
           name = the_address.display_name;
 
       if (name.indexOf('United States of America')<0 || name.indexOf('Alaska')>=0 || name.indexOf('Hawaii')>=0) {
-        alert('Addresses must be in the continental U.S.');
-        return false;
+        console.log('Warning: Addresses must be in the continental U.S.');
+        console.log(the_address);
+        // return false;
       }
 
       the_address.lat = parseFloat(the_address.lat);
