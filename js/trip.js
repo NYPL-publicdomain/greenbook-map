@@ -263,8 +263,10 @@ var GB = (function() {
 
     var gl = L.mapboxGL({
         accessToken: this.opt.mapbox.access_token,
-        style: this.opt.map_style
+        style: this.opt.mapbox.map_style
     }).addTo(map);
+
+    L.control.attribution({prefix: false}).addAttribution(this.opt.mapbox.attribution).addTo(map);
 
     this.map = map;
     console.log('Map loaded');
