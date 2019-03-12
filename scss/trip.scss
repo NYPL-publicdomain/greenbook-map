@@ -286,6 +286,7 @@ form {
   background-size: cover;
   color: $black;
   border: 1px solid $grayLight;
+  z-index: 1000;
   @include box-sizing();
 
   a {

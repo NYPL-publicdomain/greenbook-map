@@ -259,20 +259,16 @@ var GB = (function() {
   GB.prototype.loadMap = function(){
     var _this = this;
 
-    this.map = L.map('map');
+    var map = L.map('map', {maxZoom: 15}).setView(this.opt.start_latlng, this.opt.start_zoom);
 
-    this.map.on('load', function(e) {
-      console.log('Map loaded');
-      _this.map_loaded.resolve();
-    });
+    var gl = L.mapboxGL({
+        accessToken: this.opt.mapbox.access_token,
+        style: this.opt.map_style
+    }).addTo(map);
 
-    L.tileLayer(this.opt.mapbox.url, {
-      id: this.opt.mapbox.map_id,
-      accessToken: this.opt.mapbox.access_token,
-      attribution: this.opt.mapbox.attribution
-    }).addTo(this.map);
-
-    this.map.setView(this.opt.start_latlng, this.opt.start_zoom);
+    this.map = map;
+    console.log('Map loaded');
+    this.map_loaded.resolve();
   };
 
   GB.prototype.loadRoute = function(latlngs) {

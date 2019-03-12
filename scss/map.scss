@@ -16,6 +16,7 @@
   top: 30px;
   right: 30px;
   text-align: center;
+  z-index: 1000;
 
   .select-group {
     border: 1px solid $grayLight;
@@ -59,6 +60,7 @@
   background-size: cover;
   color: $black;
   border: 1px solid $grayLight;
+  z-index: 1000;
   @include box-sizing();
 
   h2 {

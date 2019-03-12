@@ -55,6 +55,7 @@ var config = {
   nominatim_url: 'https://nominatim.openstreetmap.org/search?q={q}&format=json',
   start_latlng: [38.5767, -92.1736], // Jefferson City, MO as center
   start_zoom: 4, // see the whole country
+  map_style: 'https://raw.githubusercontent.com/osm2vectortiles/mapbox-gl-styles/master/styles/bright-v9-cdn.json',
   pathfinder: {
     types: {
       hotel: ['tourist home', 'hotel', 'y.m.c.a./y.w.c.a.', 'guest house', 'motel', 'hotel; tourist home', 'inn', 'y.m.c.a./y.w.c.a.; tourist home', 'tourist home; restaurant', 'motel; restaurant', 'inn; tourist home', 'cabins', 'cottage', 'cottages; tourist home', 'rooming house', 'camp', 'hotel; restaurant', 'lodge', 'boarding house', 'resort', 'villa', 'rooms'],
