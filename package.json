@@ -1,0 +1,11 @@
+{
+  "name": "greenbook-map",
+  "description": "Navigating the Green Books",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "sass --watch scss:css"
+  },
+  "devDependencies": {
+    "express": "^4.16.4"
+  }
+}

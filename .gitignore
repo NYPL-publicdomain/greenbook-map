@@ -1,3 +1,4 @@
 .sass-cache
 *.css.map
 _dev
+node_modules/
