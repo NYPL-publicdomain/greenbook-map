@@ -320,7 +320,9 @@ var GB = (function() {
       var the_address = data[0],
           name = the_address.display_name;
 
-      if ((name.indexOf('United States of America')<0 && name.indexOf('US')<0) || name.indexOf('Alaska')>=0 || name.indexOf('Hawaii')>=0) {
+      // console.log(name);
+
+      if (name.indexOf('United States')<0 || name.indexOf('Alaska')>=0 || name.indexOf('Hawaii')>=0) {
         console.log(the_address);
         alert('Addresses must be in the continental U.S.');
       }
