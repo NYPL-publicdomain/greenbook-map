@@ -6,6 +6,6 @@
     "watch": "sass --watch scss:css"
   },
   "devDependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.3"
   }
 }
