@@ -20,7 +20,7 @@ var config = {
     }
   ],
   mapbox: {
-    access_token: 'pk.eyJ1IjoibnlwbGxhYnMiLCJhIjoiSFVmbFM0YyJ9.sl0CRaO71he1XMf_362FZQ',
+    access_token: 'pk.eyJ1IjoiYnJpYW5mb28iLCJhIjoiY2wxbTd3ZDBzMGg3cjNjbjR4N21ncHV6eiJ9.NI5jF8yQPpg3gmK70uf-Hw',
     map_style: 'mapbox://styles/mapbox/light-v9',
     attribution: 'Map data &copy; <a href="http://openstreetmap.org" target="blank">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="blank">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com" target="blank">Mapbox</a>',
     directions_url: 'https://api.mapbox.com/v4/directions/mapbox.driving/{waypoints}.json?access_token={accessToken}'
