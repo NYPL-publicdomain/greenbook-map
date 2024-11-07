@@ -214,6 +214,7 @@ body {
   background: #3F3A34 url(../img/bg.jpg) repeat;
   color: #fff;
   margin: 0;
+  margin-top: 150px;
   padding: 0;
 }
 
@@ -232,7 +233,7 @@ a:active {
 }
 
 a:hover {
-  color: #d3dbcc;
+  color: rgb(210.8695652174, 219.0652173913, 203.9347826087);
 }
 
 button {
@@ -309,7 +310,7 @@ button {
 a.button:hover,
 .button:hover,
 button:hover {
-  background: #44a15d;
+  background: rgb(68.1853932584, 160.8146067416, 92.6292134831);
 }
 
 .button-group {
@@ -322,6 +323,24 @@ button:hover {
   margin-left: 0;
 }
 
+.archive-banner {
+  width: 100%;
+  height: 110px;
+  background: #F9E08E;
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #1a1e21;
+  font-size: 16px;
+  padding: 16px;
+}
+.archive-banner a {
+  text-decoration: underline;
+  color: #1a1e21;
+}
+
 .nypl-header {
   width: 100%;
   height: 40px;
@@ -329,7 +348,7 @@ button:hover {
   background: #254426;
   position: fixed;
   z-index: 1000000;
-  top: 0;
+  top: 110px;
   left: 0;
   text-align: center;
   overflow: hidden;
@@ -359,9 +378,9 @@ button:hover {
     padding: 1em;
   }
   .row .col-2-3,
-.row .col-1-2,
-.row .col-1-4,
-.row .col-1-5 {
+  .row .col-1-2,
+  .row .col-1-4,
+  .row .col-1-5 {
     width: auto;
   }
 }
@@ -389,7 +408,7 @@ form .select-group .select.button {
   font-size: 0.7em;
 }
 form .select-group .select.button:hover {
-  background: #a39f9a;
+  background: rgb(163.4369098712, 159.3124463519, 154.3630901288);
 }
 form .select-group .select.button.active {
   background: #357d48;
@@ -515,18 +534,18 @@ form button.loading:before {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: "";
+  content: "\f10c";
   z-index: 10;
   background: #3F3A34 url(../img/bg.jpg) repeat;
 }
 .path-list li.hotel:before {
-  content: "";
+  content: "\f236";
 }
 .path-list li.restaurant:before {
-  content: "";
+  content: "\f0f5";
 }
 .path-list li:hover, .path-list li:hover:before {
-  background: #2b2927;
+  background: rgb(43.3714285714, 41.4, 39.4285714286);
 }
 .path-list li .name {
   font-size: 1.4em;

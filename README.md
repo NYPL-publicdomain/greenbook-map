@@ -1,3 +1,7 @@
+# Deprecated
+
+As of October 2024, Navigating the Green Book will no longer be updated by NYPL and will soon be archived. Maps and other site functionality will be limited once archived. The source code for the site is available here: https://github.com/nypl-publicdomain/greenbook-map. Data extracted from the Green Books can be found here: https://github.com/NYPL-publicdomain/greenbooks and the digitized Green Books are available for viewing here: https://digitalcollections.nypl.org/collections/the-green-book.
+
 # Navigating The Green Book
 
 A set of experimental interfaces by the [Brian Foo](http://brianfoo.com/) of [NYPL Labs](http://labs.nypl.org/) that explore the [Green Book](http://digitalcollections.nypl.org/collections/the-green-book), a travel guide published between 1936 and 1966 that listed hotels, restaurants, bars, gas stations, etc. where Black travelers would be welcome.
@@ -17,11 +21,12 @@ The data from [The Negro Travelers' Green Book: Spring 1956](http://digital.tcl.
 - [Open Street Map Nominatim](http://wiki.openstreetmap.org/wiki/Nominatim) - reverse geocoding
 
 ---
+
 ### About the NYPL Public Domain Release
 
-On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the [Digital Collections](http://digitalcollections.nypl.org) website. 
+On January 6, 2016, The New York Public Library enhanced access to public domain items in Digital Collections so that everyone has the freedom to enjoy and reuse these materials in almost limitless ways. For all such items the Library now makes it possible to download the highest resolution images available directly from the [Digital Collections](http://digitalcollections.nypl.org) website.
 
-That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of [projects and tools](http://nypl.org/publicdomain) to help you explore the vast collections and dive deep into specific ones. 
+That means more than 187,000 items free to use without restriction! But we know that 180K of anything is a lot to get your head around — so as a way to introduce you to these collections and inspire new works, NYPL Labs developed a suite of [projects and tools](http://nypl.org/publicdomain) to help you explore the vast collections and dive deep into specific ones.
 
 Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For more information:
 
@@ -29,3 +34,33 @@ Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For 
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
 - [Public Domain Collections](http://publicdomain.nypl.org)
 - [Project Credits](https://github.com/NYPL-publicdomain/nypl-publicdomain.github.io#credits-for-the-january-2016-nypl-public-domain-release)
+
+### Local setup
+
+1. Install the required packages
+
+```bash
+npm install
+```
+
+2. Run the app locally with npm:
+
+```bash
+npm run start
+```
+
+3. To re-compile your CSS as you change it during local development, run:
+
+```bash
+npm run watch
+```
+
+alongside your server.
+
+### Deploying
+
+Push to `master` to deploy to Github Pages. Be sure to compile before committing by running
+
+```bash
+npm run build
+```
