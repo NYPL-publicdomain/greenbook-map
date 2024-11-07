@@ -46,13 +46,13 @@ npm install
 2. Run the app locally with npm:
 
 ```bash
-npm start
+npm run start
 ```
 
 3. To re-compile your CSS as you change it during local development, run:
 
 ```bash
-npm watch
+npm run watch
 ```
 
 alongside your server.
@@ -62,5 +62,5 @@ alongside your server.
 Push to `master` to deploy to Github Pages. Be sure to compile before committing by running
 
 ```bash
-npm build
+npm run build
 ```
