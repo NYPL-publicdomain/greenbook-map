@@ -231,7 +231,7 @@ a:active {
 }
 
 a:hover {
-  color: #d3dbcc;
+  color: rgb(210.8695652174, 219.0652173913, 203.9347826087);
 }
 
 button {
@@ -308,7 +308,7 @@ button {
 a.button:hover,
 .button:hover,
 button:hover {
-  background: #44a15d;
+  background: rgb(68.1853932584, 160.8146067416, 92.6292134831);
 }
 
 .button-group {
@@ -319,6 +319,24 @@ button:hover {
 }
 .button-group .button:first-child {
   margin-left: 0;
+}
+
+.archive-banner {
+  width: 100%;
+  height: auto;
+  background: #F9E08E;
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  text-align: center;
+  color: #1a1e21;
+  font-size: 16px;
+  padding: 8px;
+}
+.archive-banner a {
+  text-decoration: underline;
+  color: #1a1e21;
 }
 
 .nypl-header {
@@ -358,9 +376,9 @@ button:hover {
     padding: 1em;
   }
   .row .col-2-3,
-.row .col-1-2,
-.row .col-1-4,
-.row .col-1-5 {
+  .row .col-1-2,
+  .row .col-1-4,
+  .row .col-1-5 {
     width: auto;
   }
 }
@@ -394,7 +412,7 @@ button:hover {
 }
 .map-select .layer-select:hover,
 .map-select .year-select:hover {
-  background: #e0dfdb;
+  background: rgb(224.45, 222.5, 219.25);
 }
 .map-select .layer-select.active,
 .map-select .year-select.active {

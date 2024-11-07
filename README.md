@@ -34,3 +34,33 @@ Go forth, reuse, and let us know what you made with the #nyplremix hashtag! For 
 - [Data & Tools](https://github.com/NYPL-publicdomain/data-and-utilities)
 - [Public Domain Collections](http://publicdomain.nypl.org)
 - [Project Credits](https://github.com/NYPL-publicdomain/nypl-publicdomain.github.io#credits-for-the-january-2016-nypl-public-domain-release)
+
+### Local setup
+
+1. Install the required packages
+
+```bash
+npm install
+```
+
+2. Run the app locally with npm:
+
+```bash
+npm start
+```
+
+3. To re-compile your CSS as you change it during local development, run:
+
+```bash
+npm watch
+```
+
+alongside your server.
+
+### Deploying
+
+Push to `master` to deploy to Github Pages. Be sure to compile before committing by running
+
+```bash
+npm build
+```
